@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Source Code Pro', 'Nunnito Sans', 'Poppins', 'Abril Fatface' serif;
+}
+
+body {
+  color: red;
+}
+ .logo {
+  font-family: 'Abril Fatface', serif;
+  font-size: 25px;
+  font-weight: 900 bold;
+  color: #AF2413;
+  letter-spacing: 1px;
+  text-decoration: none;
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-bottom: 40px;
+}
+
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: showRight 1s ease forwards;
+  animation-delay: .4s;
+}
+
+.logo:hover {
+  color: gold;
+}
+
+.navbar a {
+  font-family: 'Poppins';
+  font-size: 26px;
+  color: #367055;
+  letter-spacing: 2px;
+  justify-content: center;
+  margin-left: 40px;
+  margin-top: 65px;
+  margin-bottom: 15px;
+  padding: 35px; 
+  text-decoration: none;
+}
+
+.navbar a:hover {
+.navbar a::active 
+  font-family: 'Poppins';
+  font-size: 26px;
+  color: gold;
+  letter-spacing: 2px;
+  justify-content: center;
+  margin-left: 40px;
+  margin-top: 65px;
+  margin-bottom: 15px;
+  padding: 35px; 
+  text-decoration: none;
+}
+
+.home-content h1 {
+  font-family: 'Code Source Pro';
+  font-size: 66px;
+  color: #367055;
+  letter-spacing: 2px;
+  justify-content: center;
+  margin-left: 75px;
+  margin-top: 45px;
+  margin-bottom: 15px;
+  padding: 0px; 
+  text-decoration: none;
+}
+
+.home-content h1:hover {
+  color: gold;
+}
+
+
+.home-content h2 {
+ font-family: 'Code Source Pro';
+  font-size: 56px;
+  color: #367055;
+  letter-spacing: 2px;
+  justify-content: center;
+  margin-left: 75px;
+  margin-top: -10px;
+  padding: 0px; 
+  text-decoration: none;
+}
+
+.home-content h2:hover {
+color: gold;
+}
+
+.home-content p {
+  font-family: 'Poppins';
+  font-size: 22px;
+  color: #367055;
+  letter-spacing: 2px;
+  justify-content: absolute;
+  margin-left: 75px;
+  margin-top: 45px;
+  margin-bottom: 50px;
+  padding: 5px; 
+  text-decoration: none;
+}
+
+ .btn-box {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 380px;
+  margin-top: 70px;
+  margin-bottom: 60px;
+  padding: 10px;
+  width: 380px;
+  height: 80px;
+}
+
+.home-content .btn-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  animation: showRight 1s ease forwards;
+  animation-delay: 1.9s;
+  z-index: 2;
+}
+
+.btn-box a {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  width: 150px;
+  height: 100%;
+  background: pink;
+  border: 2px solid darkgreen;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 3px;
+  z-index: 1;
+  overflow: hidden;
+  transition: .5s;
+
+}
+
+.btn-box a:hover {
+  color: gold;
+}
+
+.btn-box a:nth-child(2) {
+  background: pink;
+}
+
+.btn-box a:nth-child(2):hover {
+  color: gold;
+}
+
+.btn-box a:nth-child(2)::before {
+  background: #367055;
+}
+
+
+.btn-box a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #367055;
+  z-index: -1;
+  transition: .5s;
+}
+
+.btn-box a:hover::before {
+  width: 100%;
+}
+
+.home-sci {
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 5px;
+  margin-bottom: 75px;
+  padding: 0px;
+  width: 345px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.home-sci a {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: pink;
+  border: 2px solid #367055;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #367055;
+  text-decoration: none;
+  z-index: 1;
+  overflow: hidden;
+  transition: .5s;
+}
+
+.home-sci a:hover {
+  color: gold;
+}
+
+.home-sci a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #367055;
+  z-index: -1;
+  transition: .5s;
+}
+
+.home-sci a:hover::before {
+  width: 100%;
+}
+
+
+/* KEYFRAMES ANIMATION */
+@keyframes showRight {
+  100% {
+  width: 0;
+  }
+}
+
