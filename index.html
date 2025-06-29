@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabina Karabaeva | Junior Frontend Developer</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+    :root {
+      --header-height: 80px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Source Code Pro', 'Nunito Sans', 'Poppins', 'Abril Fatface', serif;
+    }
+
+    body {
+      color: #367055;
+      background-color: #FFFFFF;
+    }
+
+    /* Header */
+    .header {
+      background-color: #FFFFFF;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(54,112,85,0.15);
+    }
+
+    /* Logo */
+    .logo {
+      font-family: 'Abril Fatface', serif;
+      font-size: 25px;
+      font-weight: 900;
+      color: #AF2413;
+      letter-spacing: 1px;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: #FFFFFF;
+      animation: showRight 1s ease forwards;
+      animation-delay: .4s;
+    }
+
+    .logo:hover {
+      color: gold;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar a {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      color: #367055;
+      letter-spacing: 1px;
+      margin: 0 15px;
+      padding: 10px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover,
+    .navbar a.active {
+      color: gold;
+    }
+
+    /* Menu Toggle (Burger) */
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 30px;
+      color: #367055;
+      padding: 10px;
+    }
+
+    .menu-toggle:hover {
+      color: gold;
+    }
+
+    .menu-toggle::before {
+      content: '☰'; /* Резервный символ, если Boxicons не загрузится */
+      font-family: 'Poppins', sans-serif;
+      display: none;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      margin-right: 10px;
+    }
+
+    .lang-toggle select {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      padding: 6px;
+      background: pink;
+      border: 2px solid #367055;
+      border-radius: 8px;
+      color: #367055;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .lang-toggle select:hover {
+      background: #367055;
+      color: gold;
+    }
+
+    /* Home Section */
+    .home-content {
+      text-align: center;
+      padding: 60px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .home-content .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(54,112,85,0.3);
+      margin-bottom: 20px;
+    }
+
+    .home-content h1 {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 50px;
+      color: #367055;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .home-content h1:hover {
+      color: gold;
+    }
+
+    .home-content h2 {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 40px;
+      color: #367055;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .home-content h2:hover {
+      color: gold;
+    }
+
+    .home-content p {
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      color: #367055;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Buttons */
+    .btn-box {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px auto;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .btn-box a {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 50px;
+      background: pink;
+      border: 2px solid darkgreen;
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 2px;
+      z-index: 1;
+      overflow: hidden;
+      transition: .5s;
+    }
+
+    .btn-box a:hover {
+      color: gold;
+    }
+
+    .btn-box a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: #367055;
+      z-index: -1;
+      transition: .5s;
+    }
+
+    .btn-box a:hover::before {
+      width: 100%;
+    }
+
+    /* Social Icons */
+    .home-sci {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px auto;
+      width: 100%;
+      max-width: 345px;
+    }
+
+    .home-sci a {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: pink;
+      border: 2px solid #367055;
+      border-radius: 50%;
+      font-size: 20px;
+      color: #367055;
+      text-decoration: none;
+      z-index: 1;
+      overflow: hidden;
+      transition: .5s;
+    }
+
+    .home-sci a:hover {
+      color: gold;
+    }
+
+    .home-sci a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: #367055;
+      z-index: -1;
+      transition: .5s;
+    }
+
+    .home-sci a:hover::before {
+      width: 100%;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      min-height: 100vh;
+      max-width: 900px;
+      margin: 0 auto;
+      scroll-margin-top: var(--header-height);
+    }
+
+    /* Headings */
+    h2 {
+      font-family: 'Abril Fatface', serif;
+      font-size: 2.2rem;
+      color: #367055;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2:hover {
+      color: gold;
+    }
+
+    p, ul {
+      font-family: 'Nunito Sans', sans-serif;
+      font-size: 1.1rem;
+      color: #367055;
+      margin-bottom: 15px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .project a {
+      color: #AF2413;
+      font-weight: 600;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .project a:hover {
+      color: gold;
+      text-decoration: none;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .header {
+        flex-wrap: wrap;
+        padding: 10px 15px;
+        align-items: center;
+      }
+      .logo {
+        margin: 0;
+      }
+      .navbar {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background: #FFFFFF;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        padding: 10px 0;
+        box-shadow: 0 2px 8px rgba(54,112,85,0.15);
+      }
+      .navbar.active {
+        display: flex;
+      }
+      .navbar a {
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 18px;
+        text-align: center;
+      }
+      .menu-toggle {
+        display: block;
+        order: 3;
+      }
+      .lang-toggle {
+        order: 2;
+        margin-right: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-content h1 {
+        font-size: 36px;
+      }
+      .home-content h2 {
+        font-size: 28px;
+      }
+      .home-content p {
+        font-size: 16px;
+      }
+      .btn-box {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .btn-box a {
+        width: 120px;
+        height: 40px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="#home" class="logo">sk.</a>
+    <div class="lang-toggle">
+      <select id="language-select" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="ru">Русский</option>
+      </select>
+    </div>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class='bx bx-menu'></i>
+    </div>
+    <nav class="navbar">
+      <a href="#home" class="active" data-lang="nav-home">Home</a>
+      <a href="#about" data-lang="nav-about">About</a>
+      <a href="#projects" data-lang="nav-projects">Projects</a>
+      <a href="#portfolio" data-lang="nav-portfolio">Portfolio</a>
+      <a href="#contact" data-lang="nav-contact">Contact</a>
+    </nav>
+  </header>
+  
+  <section class="home" id="home">
+    <div class="home-content">
+      <img src="cartoon.jpg" alt="Sabina" class="profile-pic" />
+      <h1 data-lang="home-title">Hi, I'm Sabina</h1>
+      <h2 data-lang="home-subtitle">Junior Frontend Developer</h2>
+      <p data-lang="home-description">I’m a passionate frontend developer learning to build beautiful, user-friendly websites with HTML, CSS, and JavaScript. I enjoy turning designs into clean code and improving the user experience on the web.</p>
+      <div class="btn-box">
+        <a href="https://wa.me/+4367761771586" target="_blank" data-lang="home-hire">Hire Me</a>
+        <a href="https://t.me/sabina_kuhle" target="_blank" data-lang="home-talk">Let's Talk</a>
+      </div>
+    </div>
+    <div class="home-sci">
+      <a href="https://www.instagram.com/sabina_kuhle" target="_blank"><i class='bx bxl-instagram'></i></a>
+      <a href="https://mail.google.com/mail/?view=cm&to=skmvwk@gmail.com" target="_blank"><i class='bx bxl-gmail'></i></a>
+      <a href="https://www.linkedin.com/in/sabina-karabaeva-1358b525b" target="_blank"><i class='bx bxl-linkedin'></i></a>
+      <a href="https://github.com/Mrskuhle" target="_blank"><i class='bx bxl-github'></i></a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 data-lang="about-title">About Me</h2>
+    <p data-lang="about-name"><strong>Full Name:</strong> Sabina Karabaeva</p>
+    <p data-lang="about-skills"><strong>Skills:</strong> HTML, CSS, JavaScript, responsive web design, UI/UX principles</p>
+    <p data-lang="about-motivation"><strong>Why I Want to Work in This Field:</strong> I am excited about a career in frontend development because it drives me to build and create something meaningful. I love the process of turning ideas into functional, beautiful websites and enjoy seeing the results of my work come to life.</p>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2 data-lang="projects-title">Projects</h2>
+    <div class="project">
+      <h3 data-lang="project-tetris-title">TETRIS-2.0</h3>
+      <p data-lang="project-tetris-desc"><strong>Description:</strong> A modern version of the classic Tetris game using HTML, CSS, and JavaScript.</p>
+      <ul>
+        <li data-lang="project-tetris-feature1">Classic gameplay with 7 tetrominoes</li>
+        <li data-lang="project-tetris-feature2">Sound effects and animations</li>
+        <li data-lang="project-tetris-feature3">Responsive for mobile and desktop</li>
+      </ul>
+      <p><strong data-lang="project-repo">Repository:</strong> <a href="https://tetris-2-0.vercel.app/" target="_blank">Live Demo</a> | <a href="https://github.com/Mrskuhle/tetris-2.0" target="_blank">GitHub</a></p>
+      <p data-lang="project-tetris-date"><strong>Completion Date:</strong> May 2025</p>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <h2 data-lang="portfolio-title">Portfolio</h2>
+    <p data-lang="portfolio-description">Here are some of the websites I've built recently.</p>
+    <div class="project">
+      <h3 data-lang="portfolio-coffee-title">Morning STAR Coffee Shop Website</h3>
+      <p data-lang="portfolio-coffee-desc"><strong>Description:</strong> A responsive site for a fictional coffee shop, showcasing modern layout and design.</p>
+      <ul>
+        <li data-lang="portfolio-coffee-feature1">Responsive layout</li>
+        <li data-lang="portfolio-coffee-feature2">Semantic HTML5 and modern CSS</li>
+        <li data-lang="portfolio-coffee-feature3">Interactive contact form</li>
+      </ul>
+      <p><strong data-lang="project-repo">Repository:</strong> <a href="https://morning-star-gamma.vercel.app/" target="_blank">Live Demo</a> | <a href="https://github.com/Mrskuhle/morning-star" target="_blank">GitHub</a></p>
+      <p data-lang="portfolio-coffee-date"><strong>Completion Date:</strong> May 2025</p>
+    </div>
+    <div class="project">
+      <h3 data-lang="portfolio-travel-title">Travel Blog Website</h3>
+      <p data-lang="portfolio-travel-desc"><strong>Description:</strong> A minimal travel-themed website featuring a fullscreen background video.</p>
+      <ul>
+        <li data-lang="portfolio-travel-feature1">Autoplay background video</li>
+        <li data-lang="portfolio-travel-feature2">Minimal and responsive UI</li>
+        <li data-lang="portfolio-travel-feature3">Smooth scrolling and visuals</li>
+      </ul>
+      <p><strong data-lang="project-repo">Repository:</strong> <a href="https://travelblog-xi.vercel.app/" target="_blank">Live Demo</a> | <a href="https://github.com/Mrskuhle/travelblog" target="_blank">GitHub</a></p>
+      <p data-lang="portfolio-travel-date"><strong>Completion Date:</strong> May 2025</p>
+    </div>
+    <div class="project">
+      <h3 data-lang="portfolio-shop-title">BuildShop - Online Construction Store</h3>
+      <p data-lang="portfolio-shop-desc"><strong>Description:</strong> A responsive e-commerce website for construction materials with multilingual support and a shopping cart.</p>
+      <ul>
+        <li data-lang="portfolio-shop-feature1">Multilingual support (English/German)</li>
+        <li data-lang="portfolio-shop-feature2">Dynamic shopping cart and search functionality</li>
+        <li data-lang="portfolio-shop-feature3">Built with Tailwind CSS and JavaScript</li>
+      </ul>
+      <p><strong data-lang="project-repo">Repository:</strong> <a href="https://online-shop-woad-five.vercel.app/" target="_blank">Live Demo</a> | <a href="https://github.com/Mrskuhle/online-shop" target="_blank">GitHub</a></p>
+      <p data-lang="portfolio-shop-date"><strong>Completion Date:</strong> June 2025</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 data-lang="contact-title">Contact</h2>
+    <p data-lang="contact-name" style="text-align: center;">
+      <strong>Name:</strong> Sabina Karabaeva
+    </p>
+    <div class="home-sci">
+      <a href="https://www.instagram.com/sabina_kuhle" target="_blank"><i class='bx bxl-instagram'></i></a>
+      <a href="https://mail.google.com/mail/?view=cm&to=skmvwk@gmail.com" target="_blank"><i class='bx bxl-gmail'></i></a>
+      <a href="https://www.linkedin.com/in/sabina-karabaeva-1358b525b" target="_blank"><i class='bx bxl-linkedin'></i></a>
+      <a href="https://github.com/Mrskuhle" target="_blank"><i class='bx bxl-github'></i></a>
+      <a href="https://wa.me/4367761771586" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+      <a href="https://t.me/+4367761771586" target="_blank"><i class='bx bxl-telegram'></i></a>
+    </div>
+  </section>
+
+  <script>
+    const translations = {
+      en: {
+        "nav-home": "Home",
+        "nav-about": "About",
+        "nav-projects": "Projects",
+        "nav-portfolio": "Portfolio",
+        "nav-contact": "Contact",
+        "home-title": "Hi, I'm Sabina",
+        "home-subtitle": "Junior Frontend Developer",
+        "home-description": "I’m a passionate frontend developer learning to build beautiful, user-friendly websites with HTML, CSS, and JavaScript. I enjoy turning designs into clean code and improving the user experience on the web.",
+        "home-hire": "Hire Me",
+        "home-talk": "Let's Talk",
+        "about-title": "About Me",
+        "about-name": "<strong>Full Name:</strong> Sabina Karabaeva",
+        "about-skills": "<strong>Skills:</strong> HTML, CSS, JavaScript, responsive web design, UI/UX principles",
+        "about-motivation": "<strong>Why I Want to Work in This Field:</strong> I am excited about a career in frontend development because it drives me to build and create something meaningful. I love the process of turning ideas into functional, beautiful websites and enjoy seeing the results of my work come to life.",
+        "projects-title": "Projects",
+        "project-tetris-title": "TETRIS-2.0",
+        "project-tetris-desc": "<strong>Description:</strong> A modern version of the classic Tetris game using HTML, CSS, and JavaScript.",
+        "project-tetris-feature1": "Classic gameplay with 7 tetrominoes",
+        "project-tetris-feature2": "Sound effects and animations",
+        "project-tetris-feature3": "Responsive for mobile and desktop",
+        "project-repo": "Repository",
+        "project-tetris-date": "<strong>Completion Date:</strong> May 2025",
+        "portfolio-title": "Portfolio",
+        "portfolio-description": "Here are some of the websites I've built recently.",
+        "portfolio-coffee-title": "Morning STAR Coffee Shop Website",
+        "portfolio-coffee-desc": "<strong>Description:</strong> A responsive site for a fictional coffee shop, showcasing modern layout and design.",
+        "portfolio-coffee-feature1": "Responsive layout",
+        "portfolio-coffee-feature2": "Semantic HTML5 and modern CSS",
+        "portfolio-coffee-feature3": "Interactive contact form",
+        "portfolio-coffee-date": "<strong>Completion Date:</strong> May 2025",
+        "portfolio-travel-title": "Travel Blog Website",
+        "portfolio-travel-desc": "<strong>Description:</strong> A minimal travel-themed website featuring a fullscreen background video.",
+        "portfolio-travel-feature1": "Autoplay background video",
+        "portfolio-travel-feature2": "Minimal and responsive UI",
+        "portfolio-travel-feature3": "Smooth scrolling and visuals",
+        "portfolio-travel-date": "<strong>Completion Date:</strong> May 2025",
+        "portfolio-shop-title": "BuildShop - Online Construction Store",
+        "portfolio-shop-desc": "<strong>Description:</strong> A responsive e-commerce website for construction materials with multilingual support and a shopping cart.",
+        "portfolio-shop-feature1": "Multilingual support (English/German)",
+        "portfolio-shop-feature2": "Dynamic shopping cart and search functionality",
+        "portfolio-shop-feature3": "Built with Tailwind CSS and JavaScript",
+        "portfolio-shop-date": "<strong>Completion Date:</strong> June 2025",
+        "contact-title": "Contact",
+        "contact-name": "<strong>Full Name:</strong> Sabina Karabaeva",
+        "contact-phone": "<strong>Phone:</strong> +43 67761771586",
+        "contact-email": "<strong>Email:</strong> <a href='mailto:skmvwk@gmail.com'>skmvwk@gmail.com</a>",
+        "contact-location": "<strong>Located in:</strong> Vienna, Austria"
+      },
+      ru: {
+        "nav-home": "Главная",
+        "nav-about": "Обо мне",
+        "nav-projects": "Проекты",
+        "nav-portfolio": "Портфолио",
+        "nav-contact": "Контакты",
+        "home-title": "Привет, я Сабина",
+        "home-subtitle": "Младший фронтенд-разработчик",
+        "home-description": "Я увлеченный фронтенд-разработчик, изучающий создание красивых и удобных веб-сайтов с использованием HTML, CSS и JavaScript. Мне нравится превращать дизайны в чистый код и улучшать пользовательский опыт в интернете.",
+        "home-hire": "Нанять меня",
+        "home-talk": "Давай поговорим",
+        "about-title": "Обо мне",
+        "about-name": "<strong>Полное имя:</strong> Сабина Карабаева",
+        "about-skills": "<strong>Навыки:</strong> HTML, CSS, JavaScript, адаптивный веб-дизайн, принципы UI/UX",
+        "about-motivation": "<strong>Почему я хочу работать в этой области:</strong> Я увлечена карьерой в фронтенд-разработке, потому что она побуждает меня создавать что-то значимое. Мне нравится процесс превращения идей в функциональные, красивые веб-сайты, и я наслаждаюсь результатами своей работы.",
+        "projects-title": "Проекты",
+        "project-tetris-title": "ТЕТРИС-2.0",
+        "project-tetris-desc": "<strong>Описание:</strong> Современная версия классической игры Тетрис, созданная с использованием HTML, CSS и JavaScript.",
+        "project-tetris-feature1": "Классический геймплей с 7 тетромино",
+        "project-tetris-feature2": "Звуковые эффекты и анимации",
+        "project-tetris-feature3": "Адаптивность для мобильных и настольных устройств",
+        "project-repo": "Репозиторий",
+        "project-tetris-date": "<strong>Дата завершения:</strong> Май 2025",
+        "portfolio-title": "Портфолио",
+        "portfolio-description": "Вот некоторые из веб-сайтов, которые я недавно создала.",
+        "portfolio-coffee-title": "Веб-сайт кофейни Morning STAR",
+        "portfolio-coffee-desc": "<strong>Описание:</strong> Адаптивный сайт для вымышленной кофейни, демонстрирующий современный макет и дизайн.",
+        "portfolio-coffee-feature1": "Адаптивный макет",
+        "portfolio-coffee-feature2": "Семантический HTML5 и современный CSS",
+        "portfolio-coffee-feature3": "Интерактивная форма обратной связи",
+        "portfolio-coffee-date": "<strong>Дата завершения:</strong> Май 2025",
+        "portfolio-travel-title": "Веб-сайт туристического блога",
+        "portfolio-travel-desc": "<strong>Описание:</strong> Минималистичный сайт на тему путешествий с полноэкранным фоновым видео.",
+        "portfolio-travel-feature1": "Автопроигрывание фонового видео",
+        "portfolio-travel-feature2": "Минималистичный и адаптивный интерфейс",
+        "portfolio-travel-feature3": "Плавная прокрутка и визуальные эффекты",
+        "portfolio-travel-date": "<strong>Дата завершения:</strong> Май 2025",
+        "portfolio-shop-title": "BuildShop - Интернет-магазин стройматериалов",
+        "portfolio-shop-desc": "<strong>Описание:</strong> Адаптивный веб-сайт электронной коммерции для строительных материалов с поддержкой нескольких языков и корзиной покупок.",
+        "portfolio-shop-feature1": "Поддержка нескольких языков (английский/немецкий)",
+        "portfolio-shop-feature2": "Динамическая корзина и функция поиска",
+        "portfolio-shop-feature3": "Создан с использованием Tailwind CSS и JavaScript",
+        "portfolio-shop-date": "<strong>Дата завершения:</strong> Июнь 2025",
+        "contact-title": "Контакты",
+        "contact-name": "<strong>Полное имя:</strong> Сабина Карабаева",
+        "contact-phone": "<strong>Телефон:</strong> +43 67761771586",
+        "contact-email": "<strong>Email:</strong> <a href='mailto:skmvwk@gmail.com'>skmvwk@gmail.com</a>",
+        "contact-location": "<strong>Местоположение:</strong> Вена, Австрия"
+      }
+    };
+
+    function changeLanguage() {
+      const lang = document.getElementById('language-select').value;
+      document.querySelectorAll('[data-lang]').forEach(element => {
+        const key = element.getAttribute('data-lang');
+        element.innerHTML = translations[lang][key];
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      changeLanguage();
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.navbar a');
+
+      // Mobile menu toggle
+      document.getElementById('mobile-menu').addEventListener('click', () => {
+        document.querySelector('.navbar').classList.toggle('active');
+      });
+
+      // Scroll-based active link highlighting
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 80;
+          if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
