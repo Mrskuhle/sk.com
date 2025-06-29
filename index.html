@@ -109,7 +109,7 @@
     }
 
     .menu-toggle::before {
-      content: '☰'; /* Резервный символ, если Boxicons не загрузится */
+      content: '☰';
       font-family: 'Poppins', sans-serif;
       display: none;
     }
@@ -411,6 +411,7 @@
       <select id="language-select" onchange="changeLanguage()">
         <option value="en">English</option>
         <option value="ru">Русский</option>
+        <option value="de">Deutsch</option>
       </select>
     </div>
     <div class="menu-toggle" id="mobile-menu">
@@ -618,6 +619,55 @@
         "contact-phone": "<strong>Телефон:</strong> +43 67761771586",
         "contact-email": "<strong>Email:</strong> <a href='mailto:skmvwk@gmail.com'>skmvwk@gmail.com</a>",
         "contact-location": "<strong>Местоположение:</strong> Вена, Австрия"
+      },
+      de: {
+        "nav-home": "Startseite",
+        "nav-about": "Über mich",
+        "nav-projects": "Projekte",
+        "nav-portfolio": "Portfolio",
+        "nav-contact": "Kontakt",
+        "home-title": "Hallo, ich bin Sabina",
+        "home-subtitle": "Junior Frontend Entwicklerin",
+        "home-description": "Ich bin eine leidenschaftliche Frontend-Entwicklerin, die lernbegierig ist und schöne, benutzerfreundliche Websites mit HTML, CSS und JavaScript erstellt. Ich genieße es, Designs in sauberen Code umzuwandeln und die Benutzererfahrung im Web zu verbessern.",
+        "home-hire": "Mich einstellen",
+        "home-talk": "Lass uns reden",
+        "about-title": "Über mich",
+        "about-name": "<strong>Vollständiger Name:</strong> Sabina Karabaeva",
+        "about-skills": "<strong>Fähigkeiten:</strong> HTML, CSS, JavaScript, responsives Webdesign, UI/UX-Prinzipien",
+        "about-motivation": "<strong>Warum ich in diesem Bereich arbeiten möchte:</strong> Ich bin begeistert von einer Karriere in der Frontend-Entwicklung, weil sie mich dazu antreibt, etwas Bedeutendes zu schaffen. Ich liebe den Prozess, Ideen in funktionale, schöne Websites umzusetzen und freue mich, die Ergebnisse meiner Arbeit lebendig werden zu sehen.",
+        "projects-title": "Projekte",
+        "project-tetris-title": "TETRIS-2.0",
+        "project-tetris-desc": "<strong>Beschreibung:</strong> Eine moderne Version des klassischen Tetris-Spiels, entwickelt mit HTML, CSS und JavaScript.",
+        "project-tetris-feature1": "Klassisches Gameplay mit 7 Tetrominos",
+        "project-tetris-feature2": "Soundeffekte und Animationen",
+        "project-tetris-feature3": "Responsiv für Mobilgeräte und Desktop",
+        "project-repo": "Repository",
+        "project-tetris-date": "<strong>Fertigstellungsdatum:</strong> Mai 2025",
+        "portfolio-title": "Portfolio",
+        "portfolio-description": "Hier sind einige der Websites, die ich kürzlich erstellt habe.",
+        "portfolio-coffee-title": "Morning STAR Café-Website",
+        "portfolio-coffee-desc": "<strong>Beschreibung:</strong> Eine responsive Website für ein fiktives Café, die modernes Layout und Design präsentiert.",
+        "portfolio-coffee-feature1": "Responsives Layout",
+        "portfolio-coffee-feature2": "Semantisches HTML5 und modernes CSS",
+        "portfolio-coffee-feature3": "Interaktives Kontaktformular",
+        "portfolio-coffee-date": "<strong>Fertigstellungsdatum:</strong> Mai 2025",
+        "portfolio-travel-title": "Reiseblog-Website",
+        "portfolio-travel-desc": "<strong>Beschreibung:</strong> Eine minimalistische Reise-Website mit einem Vollbild-Hintergrundvideo.",
+        "portfolio-travel-feature1": "Autoplay-Hintergrundvideo",
+        "portfolio-travel-feature2": "Minimalistische und responsive Benutzeroberfläche",
+        "portfolio-travel-feature3": "Flüssiges Scrollen und visuelle Effekte",
+        "portfolio-travel-date": "<strong>Fertigstellungsdatum:</strong> Mai 2025",
+        "portfolio-shop-title": "BuildShop - Online-Baumaterialien-Shop",
+        "portfolio-shop-desc": "<strong>Beschreibung:</strong> Eine responsive E-Commerce-Website für Baumaterialien mit mehrsprachiger Unterstützung und Warenkorb.",
+        "portfolio-shop-feature1": "Mehrsprachige Unterstützung (Englisch/Deutsch)",
+        "portfolio-shop-feature2": "Dynamischer Warenkorb und Suchfunktion",
+        "portfolio-shop-feature3": "Erstellt mit Tailwind CSS und JavaScript",
+        "portfolio-shop-date": "<strong>Fertigstellungsdatum:</strong> Juni 2025",
+        "contact-title": "Kontakt",
+        "contact-name": "<strong>Vollständiger Name:</strong> Sabina Karabaeva",
+        "contact-phone": "<strong>Telefon:</strong> +43 67761771586",
+        "contact-email": "<strong>Email:</strong> <a href='mailto:skmvwk@gmail.com'>skmvwk@gmail.com</a>",
+        "contact-location": "<strong>Standort:</strong> Wien, Österreich"
       }
     };
 
@@ -633,10 +683,21 @@
       changeLanguage();
       const sections = document.querySelectorAll('section');
       const navLinks = document.querySelectorAll('.navbar a');
+      const navbar = document.querySelector('.navbar');
+      const menuToggle = document.getElementById('mobile-menu');
 
       // Mobile menu toggle
-      document.getElementById('mobile-menu').addEventListener('click', () => {
-        document.querySelector('.navbar').classList.toggle('active');
+      menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('active');
+      });
+
+      // Close mobile menu on nav link click
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            navbar.classList.remove('active');
+          }
+        });
       });
 
       // Scroll-based active link highlighting
